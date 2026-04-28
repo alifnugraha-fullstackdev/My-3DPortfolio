@@ -31,3 +31,4 @@ export { default as sqlite } from "./sqlite.svg";
 export { default as summiz } from "./summiz.svg";
 export { default as tailwindcss } from "./tailwindcss.svg";
 export { default as typescript } from "./typescript.svg";
+export { default as whatsapp } from "./whatsapp.svg";

@@ -9,7 +9,7 @@ import {
   githubActions,
   go,
   javascript,
-  linkedin,
+  whatsapp,
   lua,
   mongodb,
   mysql,
@@ -172,12 +172,12 @@ export const socialLinks = [
   {
     name: "GitHub",
     iconUrl: github,
-    link: "https://github.com/alifnugraha/",
+    link: "https://github.com/alifnugraha-fullstackdev",
   },
   {
-    name: "LinkedIn",
-    iconUrl: linkedin,
-    link: "https://www.linkedin.com/in/gouranga-das-samrat",
+    name: "WhatsApp",
+    iconUrl: whatsapp,
+    link: "https://wa.me/62895402254310",
   },
 ];
 

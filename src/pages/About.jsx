@@ -56,7 +56,8 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <motion.a
-            href="#" // TODO: Masukkan link CV Anda di sini (misal: link Google Drive)
+            href="/CV_Muhammad Alif Maulana N.pdf"
+            download="CV_Muhammad Alif Maulana N.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn hover:bg-blue-600 transition-colors inline-flex items-center gap-2"
