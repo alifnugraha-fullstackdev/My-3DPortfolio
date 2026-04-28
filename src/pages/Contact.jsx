@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import { Suspense, useEffect, useRef, useState } from "react";
 import ReactConfetti from "react-confetti";
-import ReCAPTCHA from "react-google-recaptcha";
 
 import { Alert, Loader, SEO } from "../components";
 import useAlert from "../hooks/useAlert";
@@ -11,12 +10,10 @@ import { Fox } from "../models";
 
 const Contact = () => {
   const formRef = useRef();
-  const recaptchaRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("idle");
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -43,19 +40,6 @@ const Contact = () => {
   const handleFocus = () => setCurrentAnimation("walk");
   const handleBlur = () => setCurrentAnimation("idle");
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
-
-  const handleRecaptchaExpired = () => {
-    setRecaptchaValue(null);
-    showAlert({
-      show: true,
-      text: "reCAPTCHA has expired, please verify again",
-      type: "danger",
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -81,7 +65,6 @@ const Contact = () => {
           from_email: form.email,
           to_email: "muhammadalifmaulananugraha@gmail.com",
           message: form.message,
-          "g-recaptcha-response": recaptchaValue,
           sent_date: new Date().toLocaleString(),
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -97,10 +80,6 @@ const Contact = () => {
 
           // Show confetti
           setShowConfetti(true);
-
-          // Reset recaptcha
-          recaptchaRef.current?.reset();
-          setRecaptchaValue(null);
 
           setTimeout(() => {
             hideAlert();
@@ -232,26 +211,10 @@ const Contact = () => {
               whileFocus={{ scale: 1.02 }}
             />
           </motion.label>
-          <motion.div
-            className="flex justify-center w-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}
-              onChange={handleRecaptchaChange}
-              onExpired={handleRecaptchaExpired}
-              theme="light"
-              className="transform scale-100 md:scale-100 mx-auto"
-            />
-          </motion.div>
-
           <motion.button
             type="submit"
-            disabled={loading || !recaptchaValue}
-            className={`btn ${!recaptchaValue || loading
+            disabled={loading}
+            className={`btn ${loading
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:bg-blue-600"
               }`}
