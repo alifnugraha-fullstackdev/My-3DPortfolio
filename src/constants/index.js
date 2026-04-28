@@ -177,7 +177,7 @@ export const socialLinks = [
   {
     name: "WhatsApp",
     iconUrl: whatsapp,
-    link: "https://wa.me/62895402254310",
+    link: "https://wa.me/62895402254310?text=Halo%20Alif%2C%20saya%20tertarik%20dengan%20layanan%20Anda%20dan%20ingin%20berdiskusi%20lebih%20lanjut.",
   },
 ];
 
