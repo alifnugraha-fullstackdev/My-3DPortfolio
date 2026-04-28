@@ -43,14 +43,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!recaptchaValue) {
-      showAlert({
-        show: true,
-        text: "Please complete the reCAPTCHA verification",
-        type: "danger",
-      });
-      return;
-    }
+
 
     setLoading(true);
     setCurrentAnimation("hit");
