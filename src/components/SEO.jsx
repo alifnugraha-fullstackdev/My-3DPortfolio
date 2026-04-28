@@ -9,14 +9,14 @@ const SEO = ({
   type = "website",
   keywords = "Frontend Developer, Web Developer, Typescript, Next JS, Mongodb , MySQL, Firebase, Cloud JavaScript, React JS, Tailwind CSS, Portfolio, Alif Nugraha, Khulna, Bangladesh, Web Design, UI/UX, Full Stack Developer, MERN Stac, Full Stack Developer, System design, DevOps , Go, C++",
   image = "https://i.postimg.cc/HsWDG5nx/Screenshot-from-2025-06-07-13-26-18.png", // Your website screenshot as the default OG image
-  url = "https://gouranga.eu.org/",
+  url = "https://alifnugraha.netlify.app/",
   locale = "en_US",
   publishedAt,
   modifiedAt = new Date().toISOString(),
   article,
 }) => {
   const { pathname } = useLocation();
-  const siteUrl = "https://gouranga.eu.org/"; // Directly using your portfolio URL
+  const siteUrl = "https://alifnugraha.netlify.app/"; // Directly using your portfolio URL
   const canonicalUrl = `${siteUrl}${pathname}`;
   const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
@@ -30,11 +30,11 @@ const SEO = ({
     author: {
       "@type": "Person",
       name: "Alif Nugraha",
-      url: "https://gouranga.eu.org/",
+      url: "https://alifnugraha.netlify.app/",
       sameAs: [
         "https://github.com/alifnugraha",
         "https://linkedin.com/in/gouranga-das-samrat",
-        "https://gouranga.eu.org/",
+        "https://alifnugraha.netlify.app/",
         "mailto:gouranga.samrat@gmail.com",
         "https://leetcode.com/u/gourangadassamrat/",
         "https://codepen.io/gouranga-das-samrat",
@@ -61,7 +61,7 @@ const SEO = ({
       name: "Alif Nugraha's Portfolio",
       logo: {
         "@type": "ImageObject",
-        url: "https://gouranga.eu.org/logo.webp",
+        url: "https://alifnugraha.netlify.app/logo.webp",
       },
     },
     keywords: keywords.split(", "),
